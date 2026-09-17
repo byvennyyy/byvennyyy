@@ -9,14 +9,22 @@ local PROFILES =
 	{ steady = true, bursty = true, stalker = true, flyer = true, swimmer = true, blinker = true, roarer = true }
 local LOCOMOTION = { ground = true, flying = true, swimming = true, hovering = true }
 -- Keys ChaseProfiles.luau reads for each profile; anything else in params would be dead data.
+-- Render params (hover/bob) are keyed by locomotion, so any profile may carry them.
+local RENDER_PARAMS = { hoverHeight = true, bobAmplitude = true, bobPeriod = true }
+local function withRender(t)
+	for k, v in pairs(RENDER_PARAMS) do
+		t[k] = v
+	end
+	return t
+end
 local KNOWN_PARAMS = {
-	steady = {},
-	bursty = { burstSeconds = true, restSeconds = true, burstMultiplier = true, restMultiplier = true },
-	stalker = { idleCap = true, idleGain = true },
-	flyer = { hoverHeight = true, bobAmplitude = true, bobPeriod = true },
-	swimmer = { hoverHeight = true, bobAmplitude = true, bobPeriod = true },
-	blinker = { blinkPeriod = true, blinkStuds = true, telegraphSeconds = true, baseMultiplier = true },
-	roarer = { roarEvery = true, roarSeconds = true, sprintSeconds = true, sprintMultiplier = true },
+	steady = withRender({}),
+	bursty = withRender({ burstSeconds = true, restSeconds = true, burstMultiplier = true, restMultiplier = true }),
+	stalker = withRender({ idleCap = true, idleGain = true }),
+	flyer = withRender({}),
+	swimmer = withRender({}),
+	blinker = withRender({ blinkPeriod = true, blinkStuds = true, telegraphSeconds = true, baseMultiplier = true }),
+	roarer = withRender({ roarEvery = true, roarSeconds = true, sprintSeconds = true, sprintMultiplier = true }),
 }
 local FOLDERS = { Animal = true, BaseAnimals = true }
 local EXPECTED_ANIMALS = {
