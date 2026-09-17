@@ -1,4 +1,4 @@
-# Hatch & Dash: Game Design Document
+# Escape the Animals!: Game Design Document
 
 A classic stud-brick Difficulty Chart Obby, with one twist: every difficulty is a biome, and every biome hatches an animal that chases you.
 
@@ -122,4 +122,4 @@ Nothing affects other players. Skips are never needed to finish.
 
 ## 11. Name
 
-**Hatch & Dash**, listed as "Hatch & Dash 🥚 Animal Chase Obby [20 BIOMES]". Runner-up: Eggscape Obby. Avoid "Escape Animals Obby" (lost among many similar titles) and "Obby but Animals Chase You" (an almost identical game exists).
+**Escape the Animals!** Listed as "Escape the Animals! 🥚 Difficulty Chart Obby [20 BIOMES]" so search picks up the genre words. Rotate the bracketed tag with each update.

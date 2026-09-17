@@ -1,4 +1,4 @@
-# Hatch & Dash: Game Design Document
+# Escape the Animals!: Game Design Document
 
 A Roblox difficulty-chart obby where every difficulty tier is a biome and every biome hatches an animal that chases you. 20 biomes, 200 stages, 20 eggs, 20 animals to outrun and tame.
 
@@ -6,7 +6,7 @@ _Version 1.0. Source of truth for every number in this document: `docs/roster.js
 
 ## 1. Vision and Pitch
 
-**Hatch & Dash** (working title). Tagline: *Crack the egg. Beat the biome. Don't get caught.*
+**Escape the Animals!** (working title). Tagline: *Crack the egg. Beat the biome. Don't get caught.*
 
 **One sentence.** A Roblox difficulty-chart obby where every difficulty tier is its own biome, and every biome starts with an egg that hatches the animal that will chase you through all ten of its stages.
 
@@ -1545,7 +1545,7 @@ Rojo 7.7 (`default.project.json`), luau-lsp 1.69 strict typecheck with the Roblo
 
 | Name | Why | Tagline | Icon idea | Collision risk |
 |---|---|---|---|---|
-| **Hatch & Dash** | Rhyming, brandable, explains the loop; no Roblox collision found. | Crack the egg. Beat the biome. Don't get caught. | A cracked egg with an animal eye glaring out, tier-colour band along the bottom. | none found |
+| **Escape the Animals!** | Rhyming, brandable, explains the loop; no Roblox collision found. | Crack the egg. Beat the biome. Don't get caught. | A cracked egg with an animal eye glaring out, tier-colour band along the bottom. | none found |
 | **Eggscape Obby** | Pun every kid gets instantly; keeps the Obby keyword. | 20 eggs. 20 animals. Outrun what hatches. | An egg with legs sprinting away from a shadow. | low (Egg Hunt Obby, Obby but You're an Egg exist but differ) |
 | **It Hatched! RUN** | Reads like an in-game moment and a YouTube title. | Every difficulty is a biome. Every biome hatches a chaser. | Bursting egg shell with RUN! text. | none found |
 | **Escape the Biome Beasts Obby** | Proven Escape-the-X-Obby search formula with our twist in the middle. | 20 biomes, 20 beasts, 200 stages. | Player mid-jump, dragon behind, biome strip below. | low (template is crowded) |
@@ -1558,9 +1558,9 @@ Rojo 7.7 (`default.project.json`), luau-lsp 1.69 strict typecheck with the Roblo
 
 ### 10.2 Recommendation
 
-**Hatch & Dash.** Two one-syllable words that rhyme, say the whole loop (the egg hatches, you dash) and are free of collisions on Roblox. It brands well on an icon, survives being shouted in a video title, and does not box the game into one animal or biome. The listing title carries the search keywords and a bracketed content tag, which is how front-page obbies are titled:
+**Escape the Animals!.** Two one-syllable words that rhyme, say the whole loop (the egg hatches, you dash) and are free of collisions on Roblox. It brands well on an icon, survives being shouted in a video title, and does not box the game into one animal or biome. The listing title carries the search keywords and a bracketed content tag, which is how front-page obbies are titled:
 
-> **Hatch & Dash 🥚 Animal Chase Obby [20 BIOMES]**
+> **Escape the Animals! 🥚 Animal Chase Obby [20 BIOMES]**
 
 Runner-up: **Eggscape Obby** (the pun every kid gets, keeps the Obby keyword). The safe search-formula fallback: **Escape the Biome Beasts Obby**.
 

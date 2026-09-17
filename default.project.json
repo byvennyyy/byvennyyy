@@ -1,5 +1,5 @@
 {
-  "name": "AnimalChaseObby",
+  "name": "EscapeTheAnimals",
   "tree": {
     "$className": "DataModel",
     "ReplicatedStorage": {

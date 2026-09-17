@@ -8,7 +8,7 @@
 
 **{{GAME_NAME}}.** Two one-syllable words that rhyme, say the whole loop (the egg hatches, you dash) and are free of collisions on Roblox. It brands well on an icon, survives being shouted in a video title, and does not box the game into one animal or biome. The listing title carries the search keywords and a bracketed content tag, which is how front-page obbies are titled:
 
-> **Hatch & Dash 🥚 Animal Chase Obby [20 BIOMES]**
+> **Escape the Animals! 🥚 Animal Chase Obby [20 BIOMES]**
 
 Runner-up: **Eggscape Obby** (the pun every kid gets, keeps the Obby keyword). The safe search-formula fallback: **Escape the Biome Beasts Obby**.
 
