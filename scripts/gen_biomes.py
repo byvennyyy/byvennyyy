@@ -21,7 +21,7 @@ PROFILES = {"steady", "bursty", "stalker", "flyer", "swimmer", "blinker", "roare
 CHUNKS = {
     "platformRun", "gapJump", "killLane", "movingPlatform", "spinner", "conveyor", "trussClimb",
     "wallHop", "icePatch", "windTunnel", "darkCorridor", "risingLava", "fallingFloor", "teleportPad",
-    "fanLaunch", "shrinkingPlatform", "rotatingBar", "narrowBeam", "bouncePad", "laserGrid",
+    "fanLaunch", "shrinkingPlatform", "rotatingBar", "narrowBeam", "bouncePad", "laserGrid", "crusher",
 }
 ANIMAL = {'Aardvark','Akita','Albatross','Amphiptere','Anglerfish','Anteater','Australian Cattle Dog','Badger','BichonFrise','Binturong','Blobfish','Boston Terrier','Bunyip','Caracal','Cassowary','Cavalier King Charles Spaniel','ChowChow','Chupacabra','Cuttlefish','Dingo','Dullahan','DumboOctopus','Emu','English Bulldog','FangtoothFish','Fenrir','Fossa','GiantIsopod','GoblinShark','Great Dane','HoneyBadger','Hyena','Jackal','Jackalope','Kappa','Kookaburra','LeafySeaDragon','Lindworm','Maltese','MantisShrimp','Muscovy Duck','Nautilus','Papillon','Quokka','Raiju','SecretaryBird','Serval','Shoebill','Tanuki','Yak'}
 BASE = {'ARCHAEOPTERYX','ARGENTAVIS','AZHDARCHID','Ankylosaurus','Bat','Bear','Boxfish','Brachiosaurus','Bull','Bunny','Butterflyfish','CALADRIUS','CERBERUS','CHIREMA','CLASSICDRAGON','COCKATRICE','Capybara','Cat','Chicken','Cobra','CoralGoby','Cow','Crab','Crocodile','DIMETRODON','Elephant','FIREPHOENIX','Frog','GARGOYLE_BAT','GARUDA','GRIFFIN','Gallimimus','Giraffee','Goat','GoldenRetriver','Goldfish','Gorilla','GuiennaPig','HARPY','HYDRA','Hamster','Horse','Jellyfish','KRAKEN','Kangaroo','Kitsune','Koala','LEVIATHAN','Lion','Lionfish','Lizard','Llama','MANTICORE','MEGALODON','MICRORAPTOR','MINOTAUR','MOTHMAN','Mamoth','Mandarinfish','Moorish idol','Mosasaurus','Ostrich','Owl','PEGASUS','PLESIOSAUR','PREHISTORIC_DRAGONFLY','PREHISTORIC_MOTH','PTERANODON','PTERODACTYL','Parrot','Pigeon','Polar Bear','Pony','QILIN','QUETZALCOATLUS','ROC','Regal','SABER_TOOTHED_TIGER','SIMURGH','SPHINX','STEGOSAURUS','STYMPHALIANBIRD','Seahorse','Seal','Shark','Snail','Snake','Spinosaurus'}
@@ -148,6 +148,11 @@ local Biomes: {{ BiomeDef }} = {{
 
 for i, biome in Biomes do
 	assert(biome.index == i, `Biomes[{{i}}] has index {{biome.index}}`)
+	table.freeze(biome.chase.params)
+	table.freeze(biome.chase)
+	table.freeze(biome.palette)
+	table.freeze(biome.hazards)
+	table.freeze(biome)
 end
 
 return table.freeze(Biomes)

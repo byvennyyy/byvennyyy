@@ -1,0 +1,235 @@
+{
+ "1": {
+  "mechanic": "gapJump",
+  "profile": "steady",
+  "baseSpeed": 9,
+  "headStart": 12,
+  "tierColor": "#75F347",
+  "name": "Sunny Meadow"
+ },
+ "2": {
+  "mechanic": "movingPlatform",
+  "profile": "bursty",
+  "baseSpeed": 10,
+  "headStart": 11,
+  "tierColor": "#FFFE00",
+  "params": {
+   "burstSeconds": 9,
+   "burstMultiplier": 1.0,
+   "restSeconds": 3,
+   "restMultiplier": 0.05
+  }
+ },
+ "3": {
+  "mechanic": "killLane",
+  "profile": "stalker",
+  "baseSpeed": 11,
+  "headStart": 10,
+  "tierColor": "#FD7C00",
+  "params": {
+   "idleGain": 0.4,
+   "idleCap": 4
+  }
+ },
+ "4": {
+  "mechanic": "spinner",
+  "profile": "bursty",
+  "baseSpeed": 11.5,
+  "headStart": 10,
+  "tierColor": "#FF0000",
+  "params": {
+   "burstSeconds": 7,
+   "burstMultiplier": 1.0,
+   "restSeconds": 3,
+   "restMultiplier": 0.05
+  }
+ },
+ "5": {
+  "mechanic": "conveyor",
+  "profile": "bursty",
+  "baseSpeed": 12,
+  "headStart": 10,
+  "tierColor": "#C00000",
+  "params": {
+   "burstSeconds": 10,
+   "burstMultiplier": 1.0,
+   "restSeconds": 3,
+   "restMultiplier": 0.05
+  }
+ },
+ "6": {
+  "mechanic": "bouncePad",
+  "profile": "bursty",
+  "baseSpeed": 13,
+  "headStart": 9,
+  "tierColor": "#19222D",
+  "params": {
+   "burstSeconds": 2,
+   "burstMultiplier": 1.4,
+   "restSeconds": 1,
+   "restMultiplier": 0.3
+  }
+ },
+ "7": {
+  "mechanic": "wallHop",
+  "profile": "stalker",
+  "baseSpeed": 13.5,
+  "headStart": 9,
+  "tierColor": "#C800C8",
+  "params": {
+   "idleGain": 0.5,
+   "idleCap": 4
+  }
+ },
+ "8": {
+  "mechanic": "trussClimb",
+  "profile": "roarer",
+  "baseSpeed": 14,
+  "headStart": 9,
+  "tierColor": "#0000FF",
+  "params": {
+   "roarEvery": 8,
+   "roarSeconds": 1.0,
+   "sprintMultiplier": 1.7,
+   "sprintSeconds": 2
+  }
+ },
+ "9": {
+  "mechanic": "fallingFloor",
+  "profile": "roarer",
+  "baseSpeed": 14.5,
+  "headStart": 9,
+  "tierColor": "#0389FF",
+  "params": {
+   "roarEvery": 10,
+   "roarSeconds": 1.5,
+   "sprintMultiplier": 1.6,
+   "sprintSeconds": 3
+  }
+ },
+ "10": {
+  "mechanic": "narrowBeam",
+  "profile": "swimmer",
+  "baseSpeed": 15,
+  "headStart": 9,
+  "tierColor": "#00FFFF"
+ },
+ "11": {
+  "mechanic": "darkCorridor",
+  "profile": "stalker",
+  "baseSpeed": 15,
+  "headStart": 9,
+  "tierColor": "#FFFFFF",
+  "params": {
+   "idleGain": 0.6,
+   "idleCap": 3
+  }
+ },
+ "12": {
+  "mechanic": "icePatch",
+  "profile": "steady",
+  "baseSpeed": 15.5,
+  "headStart": 9,
+  "tierColor": "#9695FF"
+ },
+ "13": {
+  "mechanic": "shrinkingPlatform",
+  "profile": "blinker",
+  "baseSpeed": 16,
+  "headStart": 10,
+  "tierColor": "#630091",
+  "params": {
+   "blinkStuds": 20,
+   "blinkPeriod": 7,
+   "baseMultiplier": 0.8,
+   "telegraphSeconds": 0.8
+  }
+ },
+ "14": {
+  "mechanic": "windTunnel",
+  "profile": "flyer",
+  "baseSpeed": 16.5,
+  "headStart": 10,
+  "tierColor": "#65666D",
+  "params": {
+   "hoverHeight": 10,
+   "bobAmplitude": 2
+  }
+ },
+ "15": {
+  "mechanic": "crusher",
+  "profile": "swimmer",
+  "baseSpeed": 17,
+  "headStart": 10,
+  "tierColor": "#E8E4D8"
+ },
+ "16": {
+  "mechanic": "teleportPad",
+  "profile": "roarer",
+  "baseSpeed": 17.5,
+  "headStart": 11,
+  "tierColor": "#FFB300",
+  "params": {
+   "roarEvery": 9,
+   "roarSeconds": 1.2,
+   "sprintMultiplier": 1.6,
+   "sprintSeconds": 2.5
+  }
+ },
+ "17": {
+  "mechanic": "risingLava",
+  "profile": "bursty",
+  "baseSpeed": 18,
+  "headStart": 11,
+  "tierColor": "#FF4500",
+  "params": {
+   "burstSeconds": 4,
+   "burstMultiplier": 1.3,
+   "restSeconds": 2,
+   "restMultiplier": 0.5
+  }
+ },
+ "18": {
+  "mechanic": "rotatingBar",
+  "profile": "bursty",
+  "baseSpeed": 18.5,
+  "headStart": 12,
+  "tierColor": "#2A0A5E",
+  "params": {
+   "burstSeconds": 17,
+   "burstMultiplier": 1.0,
+   "restSeconds": 3,
+   "restMultiplier": 0.05
+  }
+ },
+ "19": {
+  "mechanic": "fanLaunch",
+  "profile": "bursty",
+  "baseSpeed": 19,
+  "headStart": 12,
+  "tierColor": "#C8B6FF",
+  "params": {
+   "burstSeconds": 10,
+   "burstMultiplier": 1.0,
+   "restSeconds": 2,
+   "restMultiplier": 0.2,
+   "hoverHeight": 8,
+   "bobAmplitude": 1.5
+  }
+ },
+ "20": {
+  "mechanic": "laserGrid",
+  "profile": "roarer",
+  "baseSpeed": 20,
+  "headStart": 12,
+  "tierColor": "#FF1E56",
+  "params": {
+   "roarEvery": 15,
+   "roarSeconds": 3,
+   "sprintMultiplier": 1.5,
+   "sprintSeconds": 4,
+   "hoverHeight": 9,
+   "bobAmplitude": 2
+  }
+ }
+}

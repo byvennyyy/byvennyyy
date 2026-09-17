@@ -1,0 +1,712 @@
+{
+ "gameName": "Hatch & Dash",
+ "escalationSummary": "Act 1, Pets (1-5): cute animals in daylight pastels teach jumping, movers, kill bricks, spinners and conveyors. Act 2, Wild (6-10): real animals kids already fear, in outback, mines, jungle, temple and reef; bounce pads, wall hops, trusses, crumbling floors and narrow beams. Act 3, Ancient (11-15): caverns, ice age, tar pits, pterosaur peaks and the megalodon trench; darkness, ice, sinking platforms, wind and crushers. Act 4, Myth (16-20): labyrinth, inferno, storm sea, phoenix peak and the dragon finale; portals, rising lava, rotating bars, updraft fans and fire-beam grids stacked on everything before.",
+ "speedCurveRationale": "Player walkspeed is 16 studs/s but real progress along an obby path is 10-12 studs/s in early biomes and 6-8 in late ones. Animal cruise speed climbs 9 -> 20 across the 20 biomes; every animal at or above 13 studs/s has a built-in pause (bursty rest, roar, selfie, slam) so its effective pace stays below a clean run, and the server rubber band guarantees two things: an animal more than maxGap studs behind speeds up (tension never dies), and an animal within mercyGap of a player who keeps progressing is capped just under that player pace (nobody is caught from behind while playing well). Standing still is the only thing that gets you caught; head starts fall from 12 s to 9 s in the middle of the game and rise again late so the harder biomes stay fair.",
+ "mechanicSequenceRationale": "One new obby verb per biome, in the classic difficulty-chart order (jumps, movers, kill bricks, spinners, conveyors), then vertical play (bounce pads, wall hops, trusses), then platform-trust mechanics (crumbling floors, narrow beams), then perception and physics (darkness, ice, sinking, wind, crushers), then the mythic set (portals, rising lava, rotating bars, updraft fans, beam grids). From biome 3 on, stages 4-10 recombine earlier verbs; the last five biomes are compound exams.",
+ "unusedNotableAnimals": [
+  {
+   "animal": "Fenrir",
+   "use": "Winter event biome \"Ragnarok\" (howl phase-shifts the map); also the first paid animal skin for biome 20."
+  },
+  {
+   "animal": "Bunny",
+   "use": "Easter event egg and the free starter pet for group members."
+  },
+  {
+   "animal": "Blobfish",
+   "use": "April Fools event chaser in a bubble; meme thumbnail."
+  },
+  {
+   "animal": "Shoebill",
+   "use": "Halloween-adjacent \"Stare Swamp\" event biome with freeze-and-lunge chase."
+  },
+  {
+   "animal": "Polar Bear",
+   "use": "Alternate animal for Glacier Age; December seasonal swap."
+  },
+  {
+   "animal": "Hyena",
+   "use": "Savanna event biome with stampede lanes."
+  },
+  {
+   "animal": "KRAKEN",
+   "use": "already used"
+  },
+  {
+   "animal": "Spinosaurus",
+   "use": "Alternate animal for Tar Pits or a Dino Week event biome."
+  },
+  {
+   "animal": "PTERANODON",
+   "use": "Alternate flyer for Pterosaur Peaks."
+  },
+  {
+   "animal": "CERBERUS",
+   "use": "already used"
+  },
+  {
+   "animal": "Kitsune",
+   "use": "Lunar New Year event biome, blinker profile."
+  },
+  {
+   "animal": "HYDRA",
+   "use": "Boss-rush event mode: three heads, three chasers."
+  },
+  {
+   "animal": "Capybara",
+   "use": "already used"
+  },
+  {
+   "animal": "Chicken",
+   "use": "Farm event and the \"Chicken Run\" 2-player mode."
+  },
+  {
+   "animal": "Cat",
+   "use": "already used"
+  },
+  {
+   "animal": "Dullahan",
+   "use": "Halloween event biome \"Gloom Marsh\" with decoy portals."
+  },
+  {
+   "animal": "MOTHMAN",
+   "use": "Lights-out event mode: moves only when you look away."
+  },
+  {
+   "animal": "GRIFFIN",
+   "use": "Sky event biome; alternate for Celestial."
+  }
+ ],
+ "biomes": [
+  {
+   "index": 1,
+   "difficultyLabel": "Easy",
+   "biomeName": "Sunny Meadow",
+   "theme": "Rolling green hills, wildflowers, a wooden fence path, a giant friendly sun and steaming hot springs in the distance (capybara-onsen meme). Mood: Sunday morning, nothing can hurt you.",
+   "animal": "Capybara",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "The number-one meme animal for this age group. A capybara calmly waddling after you at 9 studs/s is funny instead of scary, so total beginners laugh rather than quit, and the first 30 seconds are already clip-worthy. Reads instantly as a brown blob with a nose at 48 px.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "steady",
+    "description": "Slow, unbothered walk along the path. Never sprints. Exists to teach what the bar means and that the animal WILL eventually reach you if you stand still.",
+    "baseSpeedStudsPerSec": 9,
+    "headStartSeconds": 12,
+    "twist": "Chill mode: it sits down to chew for 2 s at every stage gate it passes (visible on the bar as a stall) - a free breather that teaches checkpoints matter."
+   },
+   "newMechanicIntroduced": "Basic gap jumps and stepping stones (1-6 stud gaps, single-block steps); falling into water just respawns you at the checkpoint",
+   "signatureHazards": [
+    "Short gap jumps over shallow streams",
+    "Stepping-stone chains across a pond",
+    "Hay-bale staircases (vertical intro)",
+    "Low hedges to jump over",
+    "Lily-pad ford at the river (wide, forgiving)"
+   ],
+   "eggDesign": "Cream hen-style egg with brown speckles sitting in a straw nest, with a tiny orange-slice sticker on top (capybara-with-yuzu meme). 3 studs tall, soft golden sparkle particles.",
+   "palette": "#7BC950 grass green (ground), #8ED6FF sky blue (sky/water), #FFD23F sunflower yellow (accents/checkpoints), #8B5A2B capybara brown (fences, hazards)",
+   "musicVibe": "Ukulele lo-fi with bird chirps; laid back, loops without tension",
+   "sourceProposal": "appeal"
+  },
+  {
+   "index": 2,
+   "difficultyLabel": "Medium",
+   "biomeName": "Golden Farm",
+   "theme": "Wheat fields at golden hour with a red barn, windmills, tractors and pumpkin patches; a hay-cart railway runs the length of the biome.",
+   "animal": "GoldenRetriver",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "Still cute and harmless, but bigger and faster than the bunny; it reads as the dog that just wants to play, so escalation is felt without fear. Golden retrievers are one of the most requested pets on the platform.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "steady with stalls",
+    "description": "Trots at a constant 10 studs/s and stops for 3 s at bone props every 12 s. Net pace about 7.5 studs/s. The bone props are visible on the path so players can plan where to catch a breath.",
+    "baseSpeedStudsPerSec": 10,
+    "headStartSeconds": 11,
+    "twist": "Bone sniff: stops 3 s at visible bone props placed by the level designer, teaching that pauses are tied to world objects."
+   },
+   "newMechanicIntroduced": "Moving platforms: hay carts on rails, windmill-blade lifts and tractor beds that carry you across gaps on fixed loops.",
+   "signatureHazards": [
+    "Hay carts on rails (ride and jump)",
+    "Slow windmill blades (push early, kill in later stages)",
+    "Mud slow zones",
+    "Fence hurdles with tighter timing",
+    "Rolling pumpkins down slopes"
+   ],
+   "eggDesign": "Straw-yellow egg with brown speckles and a green ribbon sitting in a hay bale; wobbles kick up dust puffs, cracks with a happy bark.",
+   "palette": "#F4C542 wheat, #C0392B barn red, #6FCF97 crop green, #5DADE2 sky",
+   "musicVibe": "Country banjo and hand claps, 120 BPM",
+   "alternateAnimals": [
+    "Capybara",
+    "Cavalier King Charles Spaniel"
+   ],
+   "sourceProposal": "progression"
+  },
+  {
+   "index": 3,
+   "difficultyLabel": "Hard",
+   "biomeName": "Sunset Rooftops",
+   "theme": "City rooftops at golden hour: water towers, laundry lines, AC units, neon signs flickering on. You parkour building to building while a cat stalks you along the ledges. Mood: anime opening.",
+   "animal": "Cat",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "Cats are the most-loved animal for kids and a cat calmly stalking you across rooftops is the cat.exe meme. Simple ears-and-tail silhouette at small size, and the 'it only pounces when you stop' twist teaches the core rule of the whole game.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "stalker",
+    "description": "Walks at a stalking pace, but punishes idling hard.",
+    "baseSpeedStudsPerSec": 11,
+    "headStartSeconds": 10,
+    "twist": "Idle pounce: if the player stands still for more than 2 s the cat sprints at 18 studs/s until the player moves again (tell: crouch wiggle + hiss)."
+   },
+   "newMechanicIntroduced": "Kill bricks (glowing red neon vents and sparking wires: touch = instant respawn at checkpoint)",
+   "signatureHazards": [
+    "Sparking AC units (kill bricks) on ledges",
+    "Neon-tube kill strips along walkways",
+    "Clothesline tightropes (narrow beams)",
+    "Fire-escape ladders (light truss climb)",
+    "Billboard moving platforms",
+    "Building-to-building long jumps"
+   ],
+   "eggDesign": "Grey egg wrapped in red yarn with a tiny bell; 3 studs, sparkle particles; sits on a rooftop cushion.",
+   "palette": "#FF7A3D sunset orange (sky), #4B2E83 dusk purple (shadows), #FF2E88 neon pink (kill bricks, signs), #2A2A3A rooftop grey (ground)",
+   "musicVibe": "Lo-fi hip hop with distant city traffic; head-nod tempo",
+   "sourceProposal": "appeal"
+  },
+  {
+   "index": 4,
+   "difficultyLabel": "Difficult",
+   "biomeName": "Whispering Woods",
+   "theme": "A dappled autumn forest of giant tree trunks, mushroom platforms, rope bridges and rolling logs with sunbeams through the canopy. First biome with real verticality and shadow.",
+   "animal": "Tanuki",
+   "animalFolder": "Animal",
+   "whyThisAnimal": "The mischievous raccoon-dog bridges pet to wild: still cute, but it hides in bushes and pops out. Its trickster folklore role justifies introducing the idle punisher without making the game scary yet.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "stalker",
+    "description": "Runs at 11 studs/s, then ducks into a bush for 3 s every 10 s (net about 7.7). If the player's progress value has not changed for 2 s it drums its belly (audible cue) and sprints at 15 until they move again.",
+    "baseSpeedStudsPerSec": 11.5,
+    "headStartSeconds": 10,
+    "twist": "Idle punisher, introduced here: standing still for 2 s triggers a belly-drum and a 15 studs/s sprint that ends the moment you move."
+   },
+   "newMechanicIntroduced": "Rotating hazards: spinning log rollers, swinging thorn branches and windmill-style spinners that kill on touch, all on readable fixed timings.",
+   "signatureHazards": [
+    "Rolling log spinners",
+    "Swinging thorn branches",
+    "Rope bridges with missing planks",
+    "Harmless mushroom bounce platforms",
+    "Falling acorns on a fixed timer"
+   ],
+   "eggDesign": "Mossy green egg with a leaf pattern and an acorn cap on top, tucked between tree roots; fireflies orbit it and it cracks with a drum thump.",
+   "palette": "#3E7C3A canopy green, #A0522D bark brown, #F2B134 autumn gold, #FFF3C7 sunbeams",
+   "musicVibe": "Marimba, woodblock and flute, playful forest theme, 118 BPM",
+   "alternateAnimals": [
+    "Badger",
+    "Koala"
+   ],
+   "sourceProposal": "progression"
+  },
+  {
+   "index": 5,
+   "difficultyLabel": "Challenging",
+   "biomeName": "Sunset Shore",
+   "theme": "A tropical beach at sunset: tide pools, sandcastles, driftwood piers and palms under an orange sky, with turquoise water constantly pushing across the path.",
+   "animal": "Quokka",
+   "animalFolder": "Animal",
+   "whyThisAnimal": "The happiest animal on earth chasing you at full smile is pure comedy, which keeps the early game friendly while speed climbs. It lives on Rottnest Island beaches, so the setting is honest. It is the last purely cute chaser.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "steady",
+    "description": "Perfectly constant 12 studs/s with a 3 s selfie pose every 10 s (net about 8.4). No tricks, no idle punishment: this is the calibration biome where players learn conveyor timing against a predictable pursuer.",
+    "baseSpeedStudsPerSec": 12,
+    "headStartSeconds": 10,
+    "twist": "Selfie pose: stops 3 s every 10 s with a camera-shutter sound; otherwise the most predictable chaser in the game by design."
+   },
+   "newMechanicIntroduced": "Conveyors and push currents: tide-pull sand conveyors running with and against you, and rip-current zones that push sideways toward the water.",
+   "signatureHazards": [
+    "Tide conveyors (with and against you)",
+    "Rip currents pushing sideways",
+    "Timed crab-claw snap traps in the sand",
+    "Tide rising and falling over pier planks",
+    "Coconut drops from palms"
+   ],
+   "eggDesign": "Sandy beige egg covered in seashell and starfish stickers, set in a sandcastle turret; bubbles rise from it and it cracks with a squeak.",
+   "palette": "#FF8C42 sunset orange, #2EC4B6 shallow water, #F7E1A0 sand, #7B2CBF dusk purple",
+   "musicVibe": "Steel drums and surf guitar, 115 BPM",
+   "alternateAnimals": [
+    "Crab",
+    "Seal"
+   ],
+   "sourceProposal": "progression"
+  },
+  {
+   "index": 6,
+   "difficultyLabel": "Intense",
+   "biomeName": "Red Outback",
+   "theme": "Red-ochre canyons, termite mounds and geyser bounce pads under a huge pale sky. Tumbleweeds roll through and cactus spikes line every landing ledge.",
+   "animal": "Kangaroo",
+   "animalFolder": "BaseAnimals",
+   "alternateAnimals": [
+    "Emu",
+    "Cassowary"
+   ],
+   "whyThisAnimal": "A kangaroo bounding after you is the perfect mascot for the jump-pad biome: it is the only chaser that uses the pads, sailing over sections you had to earn, so players feel the mechanic from both sides.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "bursty (hopper)",
+    "description": "Bounds at 14 studs/s. On reaching a jump pad it is launched over the next section (skipping 20-30 studs) and lands with a 1 s stagger. Averages about 12.5 studs/s on pad-heavy stages.",
+    "baseSpeedStudsPerSec": 13,
+    "headStartSeconds": 9,
+    "twist": "it uses the jump pads too, skipping whole sections, but staggers for 1 s on every landing"
+   },
+   "newMechanicIntroduced": "Jump pads (bounce pads that launch the player on a fixed arc; landing accuracy matters)",
+   "signatureHazards": [
+    "Jump-pad chains across canyon gaps",
+    "Cactus kill-brick landing zones",
+    "Rolling tumbleweed kill rollers",
+    "Conveyor sand-slides that feed into pad launches",
+    "Truss climbs up termite mounds"
+   ],
+   "eggDesign": "Large dark green-blue egg with a leathery sheen half-buried in red sand; dust-puff particles.",
+   "palette": "#C1440E red ochre (ground/cliffs), #E5C07B sand (platforms), #CFE8F3 pale sky (backdrop), #7A9D54 cactus green (hazards)",
+   "musicVibe": "Didgeridoo drone with clapsticks and slide guitar at 100 BPM",
+   "sourceProposal": "mechanic"
+  },
+  {
+   "index": 7,
+   "difficultyLabel": "Remorseless",
+   "biomeName": "Honey Mines",
+   "theme": "A mine dug into a colossal beehive: honeycomb walls, dripping honey, mine-cart rails, lantern light and huge decorative bees. Mood: golden, sticky, industrial. The beast act begins.",
+   "animal": "HoneyBadger",
+   "animalFolder": "Animal",
+   "whyThisAnimal": "'Honey badger don't care' is still quoted by kids. It is the first animal that feels relentless - no pauses, no gimmicks - which is exactly the tone shift from meme act to beast act. Black-and-white face is high contrast on the bar.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "relentless",
+    "description": "Never pauses, never idles, constant pace. The first biome where the stall budget is real.",
+    "baseSpeedStudsPerSec": 13.5,
+    "headStartSeconds": 9,
+    "twist": "Doesn't care: it smashes straight through honeycomb barriers the player must walk around (its path spline is 10 percent shorter). On catch it does a shrug animation."
+   },
+   "newMechanicIntroduced": "Wall hops: staggered mine-shaft ledges you leap between while climbing out of the pit (the first vertical biome).",
+   "signatureHazards": [
+    "Rotating honey-dipper kill bars",
+    "Honey slow patches (walkspeed 10)",
+    "Mine-cart moving platforms on rails",
+    "Timed dripping-honey kill drops",
+    "Crumbly honeycomb ledges",
+    "Lantern-lit rail beams over drops"
+   ],
+   "eggDesign": "Amber honey egg with hexagon pattern and dripping golden stripes; 4 studs, slow honey-drip particles.",
+   "palette": "#F2A900 honey gold (accents, platforms), #3B2A14 mine dark (walls), #FFE08A comb light (guides), #1A1A1A badger black (kill bars)",
+   "musicVibe": "Bass-heavy funk with industrial clanks and bee buzz",
+   "sourceProposal": "appeal"
+  },
+  {
+   "index": 8,
+   "difficultyLabel": "Insane",
+   "biomeName": "Emerald Jungle",
+   "theme": "Dense rainforest: giant kapok trees, waterfalls, hanging vines and ruined stone steps swallowed by moss, humid mist and neon frogs. Stages go vertical for the first time.",
+   "animal": "Cassowary",
+   "animalFolder": "Animal",
+   "whyThisAnimal": "The world's most dangerous bird, native to rainforest, with a dinosaur look that foreshadows the prehistoric act. Its charge is telegraphed and its inability to climb makes verticality a real defense.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "charger",
+    "description": "12 s cycle: 5 s at 15, a 1.5 s head-down charge at 21, then 5.5 s of feather shaking. Net about 9 studs/s. While the player is on a truss the Cassowary waits at the base, so fast climbing buys time.",
+    "baseSpeedStudsPerSec": 14,
+    "headStartSeconds": 9,
+    "twist": "Cannot climb: it stalls at the foot of every truss until the player leaves it, so the new mechanic is also the counterplay."
+   },
+   "newMechanicIntroduced": "Climbing: trusses, vines and ladders, with the first vertical stages (climb, jump, climb).",
+   "signatureHazards": [
+    "Vine trusses over waterfalls",
+    "Rotten log bridges",
+    "Poison-dart plant spitters (timed projectiles across the path)",
+    "Waterfall push zones",
+    "Carnivorous plant snap platforms",
+    "Rolling boulders on stone stairs"
+   ],
+   "eggDesign": "Emerald egg with an electric-blue neck-stripe pattern wrapped in vines among glowing mushrooms; it cracks with a low boom.",
+   "palette": "#0B6E4F deep green, #A7F432 neon leaf, #3D2B1F wet bark, #00B4D8 waterfall",
+   "musicVibe": "Tribal drums, pan flute and jungle ambience, 128 BPM",
+   "alternateAnimals": [
+    "Fossa",
+    "HoneyBadger"
+   ],
+   "sourceProposal": "progression"
+  },
+  {
+   "index": 9,
+   "difficultyLabel": "Extreme",
+   "biomeName": "Ape Temple",
+   "theme": "A crumbling, mossy stone temple in the canopy, giant ape statues, collapsing bridges and echoing drums. Mood: first true boss fight.",
+   "animal": "Gorilla",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "'100 men vs 1 gorilla' is the meme of the year. A gorilla that beats its chest and charges is the perfect first boss and thumbnail, and its blocky black shape reads well at any size.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "charger",
+    "description": "Steady walk, then a 1.5 s chest-beat (tell) followed by a 2 s charge at 19 studs/s.",
+    "baseSpeedStudsPerSec": 14.5,
+    "headStartSeconds": 9,
+    "twist": "Ground pound: at every stage gate it passes it pounds the ground, sending a visible shockwave ring 25 studs along the path; if you are grounded when it reaches you, you are shoved 3 studs (into hazards) - jump over it."
+   },
+   "newMechanicIntroduced": "Crumbling platforms (collapse 0.5 s after landing and do NOT return until you respawn - route commitment)",
+   "signatureHazards": [
+    "Crumbling stone bridges",
+    "Shockwave rings to jump over",
+    "Swinging spiked logs (spinner variant)",
+    "Crumbling pillars combined with moving platforms",
+    "Timed dart-trap kill bricks",
+    "Collapsing stairways under the gorilla's charge"
+   ],
+   "eggDesign": "Dark stone-grey egg carved with gold glyphs and moss, half sunk in a temple altar; 4.5 studs, dust and gold-glint particles.",
+   "palette": "#4A6A4A mossy stone (ground), #2B2B2B gorilla black (hazards), #D4AF37 temple gold (checkpoints), #7FB069 jungle light (background)",
+   "musicVibe": "Heavy taiko drums with choir stabs, boss-fight tempo",
+   "sourceProposal": "appeal"
+  },
+  {
+   "index": 10,
+   "difficultyLabel": "Terrifying",
+   "biomeName": "Shark Reef",
+   "theme": "A bright coral reef with a sunken pirate ship, kelp forests and sun rays through water. The entire biome is underwater with air-bubble stations. Mood: Jaws in candy colours.",
+   "animal": "Shark",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "'SHARK' is the most primal chase animal there is. Introducing swimming with a fin closing in behind you is instantly readable, the grey fin silhouette is iconic on the bar, and it sets up the Megalodon callback at biome 14 ('the shark was nothing').",
+   "locomotion": "swimming",
+   "chaseProfile": {
+    "style": "steady swimmer",
+    "description": "Smooth, constant swim along the path; the water at the screen edge tints red as it closes.",
+    "baseSpeedStudsPerSec": 15,
+    "headStartSeconds": 9,
+    "twist": "Fin tell: within 30 studs the 'dun-dun' sting plays. It circles for 3 s at every air-bubble station it passes (mercy so you can breathe)."
+   },
+   "newMechanicIntroduced": "Narrow coral beams over open water: one-stud-wide reef bridges where the water below is the kill zone and the shark circles right under you. (Hand-built upgrade: real Terrain water stretches with an air meter.)",
+   "signatureHazards": [
+    "Oxygen timer between bubble stations",
+    "Drifting jellyfish kill bricks",
+    "Sea-urchin kill patches",
+    "Closing giant clams (crushers preview)",
+    "Swinging anchor spinners",
+    "Kelp thickets that hide gaps"
+   ],
+   "eggDesign": "Pearl-white egg nestled inside an open clam shell; 4 studs, bubble particles.",
+   "palette": "#1E90FF ocean blue (water), #FF6F61 coral (platforms), #7CFFCB sea foam (bubble stations / checkpoints), #5C6B73 shark grey (hazards)",
+   "musicVibe": "Muffled synth-wave with a rising heartbeat and Jaws-style two-note sting",
+   "sourceProposal": "appeal"
+  },
+  {
+   "index": 11,
+   "difficultyLabel": "Catastrophic",
+   "biomeName": "Croc Caverns",
+   "theme": "A flooded, pitch-black cave system lit only by glowing mushrooms and your lantern; half swim, half rock climb, bones on every shore. Mood: horror.",
+   "animal": "Crocodile",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "The 'crocodile in the sewers / caves' urban legend. Croc jaws are the most recognisable bite silhouette, and a chaser that is slow on land but terrifying in water forces kids to route-plan for the first time.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "amphibious",
+    "description": "Lumbers on land, rockets in water (needs swim animation for the water sections). In the dark you only see its two glowing eyes and the bar icon.",
+    "baseSpeedStudsPerSec": 15,
+    "headStartSeconds": 9,
+    "twist": "18 studs/s in water; death-roll lunge at 24 studs/s for 1 s when within 15 studs in water (tell: ripple ring)."
+   },
+   "newMechanicIntroduced": "Darkness / limited vision (lantern radius; some platforms only appear when lit, glow crystals mark the route)",
+   "signatureHazards": [
+    "Hidden gaps outside the lantern radius",
+    "Falling stalactite kill drops",
+    "Underwater tunnels with oxygen",
+    "Sinking bone-raft platforms",
+    "Slippery wet rock (ice-lite)",
+    "Rotating cave-drill spinners"
+   ],
+   "eggDesign": "Dark-green scaled egg with a glowing yellow eye-slit that blinks; 4.5 studs, green glow particles.",
+   "palette": "#0B0F0D cave black (background), #2E8B57 croc green (hazards), #7DF9FF glow-mushroom cyan (guides / checkpoints), #C7B299 bone (platforms)",
+   "musicVibe": "Dripping water, low drones, sudden stings when the eyes appear",
+   "sourceProposal": "appeal"
+  },
+  {
+   "index": 12,
+   "difficultyLabel": "Horrific",
+   "biomeName": "Glacier Age",
+   "theme": "Ice-age wasteland at night: blue glaciers, blizzard gusts, frozen waterfalls and an aurora overhead; ice pillars shatter behind you as the mammoth plows through. Everything is slippery.",
+   "animal": "Mamoth",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "The one chaser that never stops. Its slow, relentless pace is a horror beat (the Terminator effect): its bar icon never pauses, and the visible destruction of ice pillars behind you sells its mass. Its low nominal speed is deliberate; it has the highest effective average in the game so far.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "relentless",
+    "description": "Constant 10.5 studs/s with no pauses, no bursts and no baiting; it ramps from 0 to 10.5 over 3 s after any reset and then never slows. Because the player slides and waits on ice, 10.5 unbroken is a tighter margin than any burst chaser before it.",
+    "baseSpeedStudsPerSec": 15.5,
+    "headStartSeconds": 9,
+    "twist": "Unstoppable: zero pause cycle. Ice pillars along the path shatter as it passes, a physical timer of how close it is."
+   },
+   "newMechanicIntroduced": "Ice and low friction: sliding momentum, slope slides and ice-ramp jumps that require pre-turning.",
+   "signatureHazards": [
+    "Ice floors with slide momentum",
+    "Blizzard gusts that push",
+    "Frozen waterfall climbs with breakaway icicles",
+    "Cracking ice over freezing water",
+    "Snowball rollers on slopes",
+    "Icicle drops on a timer"
+   ],
+   "eggDesign": "Ice-blue egg sealed inside a block of ice with a mammoth silhouette frozen inside; snow flurries, and the ice shatters with a trumpet blast.",
+   "palette": "#A8DADC glacier blue, #1D3557 night navy, #F1FAEE snow, #7FFFD4 aurora",
+   "musicVibe": "Cold synth pads and a slow tribal drum that never stops, 85 BPM",
+   "alternateAnimals": [
+    "Polar Bear",
+    "Yak"
+   ],
+   "sourceProposal": "progression"
+  },
+  {
+   "index": 13,
+   "difficultyLabel": "Unreal",
+   "biomeName": "Tar Pits",
+   "theme": "A prehistoric night: bubbling black tar pools, amber sap, mammoth bones and fern silhouettes under a huge moon; platforms sink when you stand on them. First prehistoric biome.",
+   "animal": "SABER_TOOTHED_TIGER",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "The iconic La Brea predator is the perfect prehistoric opener: it stalks like a cat, so for the first time the chase is distance-based rather than time-based.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "stalker-pouncer",
+    "description": "Creeps at 16.5 studs/s while more than 30 studs behind. At 30 studs it crouches for 4 s (growl, eye glint on the bar icon), pounces at 26 for 1.5 s, then recovers 1.5 s. Net about 10 studs/s when engaged; freezing on a sinking platform is doubly punished.",
+    "baseSpeedStudsPerSec": 16,
+    "headStartSeconds": 10,
+    "twist": "Stalk and pounce: the only chaser that changes behaviour by distance, so the bar's gap number becomes a warning meter."
+   },
+   "newMechanicIntroduced": "Sinking and crumbling platforms: platforms that sink into tar or crumble 0.8 s after you land, forcing continuous movement.",
+   "signatureHazards": [
+    "Sinking tar platforms",
+    "Bone bridges that crumble",
+    "Amber sap slow zones",
+    "Tar bubbles that burst upward (kill)",
+    "Fern spinners"
+   ],
+   "eggDesign": "Tar-black egg with amber sap fossil patterns half sunk in a tar pool ringed by bones; it cracks with a snarl and the tar around it drains away.",
+   "palette": "#0A0A0A tar, #FFB627 amber, #E8DCC4 bone, #2E4057 night blue",
+   "musicVibe": "Low strings and bone percussion, 95 BPM, heartbeat rises when the tiger crouches",
+   "alternateAnimals": [
+    "DIMETRODON",
+    "STEGOSAURUS"
+   ],
+   "sourceProposal": "progression"
+  },
+  {
+   "index": 14,
+   "difficultyLabel": "Nil",
+   "biomeName": "Pterosaur Peaks",
+   "theme": "Storm-lashed cliff spires above the clouds: bone nests, rope-and-bone bridges, lightning strikes and gusts that shove you off ledges. The path is mostly narrow ridges with nothing below.",
+   "animal": "QUETZALCOATLUS",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "The largest flying animal ever, giraffe-tall with a 10 m wingspan. Its shadow passing over the player is a free telegraph and it fully justifies flying locomotion in a sky biome.",
+   "locomotion": "flying",
+   "chaseProfile": {
+    "style": "glide-and-dive",
+    "description": "8 s cycle: glides at 17.5 for 2.5 s, dives at 24 for 1.5 s toward the player's current position (telegraphed by its shadow crossing them), then hovers 4 s. Net about 10 studs/s. Wind zones push it exactly as they push the player.",
+    "baseSpeedStudsPerSec": 16.5,
+    "headStartSeconds": 10,
+    "twist": "Shadow dive: the warning is a shadow decal on the ground, so players learn to watch the floor as well as the bar."
+   },
+   "newMechanicIntroduced": "Wind zones: gusts and updrafts that push, lift or drop you on visible timers, with cloth flags as indicators.",
+   "signatureHazards": [
+    "Cross-wind ridges",
+    "Updraft columns you must ride",
+    "Lightning strikes on marked rocks",
+    "Swinging bone bridges",
+    "Cloud platforms that dissolve",
+    "Egg-nest spikes"
+   ],
+   "eggDesign": "Huge grey egg with dark speckles in a nest of bones on a cliff edge; lightning flickers across it and it cracks with a thunderclap.",
+   "palette": "#4A5568 storm grey, #E2E8F0 cloud white, #F6E05E lightning, #2D3748 cliff",
+   "musicVibe": "Orchestral strings with wind howl and thunder hits, 110 BPM",
+   "alternateAnimals": [
+    "PTERANODON",
+    "AZHDARCHID"
+   ],
+   "sourceProposal": "progression"
+  },
+  {
+   "index": 15,
+   "difficultyLabel": "Extinction",
+   "biomeName": "The Trench",
+   "theme": "The deep ocean trench: black water, bioluminescent plankton trails, hydrothermal vents and a colossal whale skeleton as the path. Mood: dread. The last standard tier.",
+   "animal": "MEGALODON",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "The ultimate YouTube-title animal ('THE MEGALODON IS CHASING ME'). Its scale makes the bar render a giant jaw, and 'beating Nil' equals 'beating the Meg' - a badge kids will share. It pays off swimming (10) and darkness (11) at once and closes the Shark callback.",
+   "locomotion": "swimming",
+   "chaseProfile": {
+    "style": "juggernaut",
+    "description": "Massive, steady swim that rubber-bands to keep pressure visible. Needs swim animation.",
+    "baseSpeedStudsPerSec": 17,
+    "headStartSeconds": 10,
+    "twist": "Jaw lunge: within 20 studs it opens its mouth (1 s tell + sting) then lunges at 28 studs/s for 1 s. If more than the leash distance behind it speeds to 19 so the bar always shows it closing."
+   },
+   "newMechanicIntroduced": "Crushers (colossal whale ribs and rock jaws that slam shut on a rhythm; you pass on the beat)",
+   "signatureHazards": [
+    "Slamming rib-cage crushers",
+    "Vent-jet currents (wind-zone variant underwater)",
+    "Timed vent eruptions",
+    "Sparse air-bubble stations (oxygen pressure)",
+    "Bioluminescent-only visibility",
+    "Collapsing bone platforms"
+   ],
+   "eggDesign": "Glossy black egg with pulsing electric-blue crack veins, huge at 6 studs, pressure-bubble particles and a low hum.",
+   "palette": "#020912 trench black (background), #00E5FF bio-blue (guides / checkpoints), #7A1F1F vent red (hazards), #9CA3AF megalodon grey (platforms)",
+   "musicVibe": "Sub-bass drones and whale calls, slow heartbeat building to a Jaws sting",
+   "sourceProposal": "appeal"
+  },
+  {
+   "index": 16,
+   "difficultyLabel": "Mythic",
+   "biomeName": "The Labyrinth",
+   "theme": "A marble-and-bronze Greek maze with shifting walls, torches and statues, open to a purple twilight sky. Mood: the mythic act begins.",
+   "animal": "MINOTAUR",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "The maze monster every kid knows from Percy Jackson. Horns make a bold bar render, the maze mechanic lets the chaser feel smart, and a humanoid brute is the right first step into mythicals.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "charger",
+    "description": "Steady heavy walk; charges down straight corridors after a snort tell.",
+    "baseSpeedStudsPerSec": 17.5,
+    "headStartSeconds": 11,
+    "twist": "Wall-breaker: it always takes the shortest spline (walls fold as it passes), so dead ends cost you real distance. Charges at 22 studs/s for 2 s in straight corridors; stops 2 s to bellow after each charge."
+   },
+   "newMechanicIntroduced": "Portal maze: paired teleport pads route you through the labyrinth, with decoy portals that send you back a room; the Minotaur is stunned for a moment every time you portal.",
+   "signatureHazards": [
+    "Shifting wall crushers",
+    "Dead-end corridors (time loss)",
+    "Timed spike-floor kill bricks",
+    "Rotating statue spinners",
+    "Crumbling marble bridges",
+    "Bronze-bull stampede lanes (moving kill objects)"
+   ],
+   "eggDesign": "White marble egg with a gold Greek-key band and small bronze horns; 5 studs, torch-ember particles.",
+   "palette": "#F3EBDD marble (platforms), #B87333 bronze (walls / gates), #5B2A86 twilight purple (sky), #E63946 blood red (hazards)",
+   "musicVibe": "Epic Greek lyre over war drums",
+   "sourceProposal": "appeal"
+  },
+  {
+   "index": 17,
+   "difficultyLabel": "Infernal",
+   "biomeName": "Inferno",
+   "theme": "Hell proper: rivers of fire, chained rock islands, screaming statues, sweeping fire beams and a black sky raining sparks. Every hazard is a beam or a burn.",
+   "animal": "CERBERUS",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "The three-headed hound of hell is the roster's most recognisable monster, and three heads give three chase states that the player must read off the bar icon.",
+   "locomotion": "ground",
+   "chaseProfile": {
+    "style": "three-state",
+    "description": "Heads take turns for 6 s each: Sniff (stationary howl, bar icon glows red), Run (20 studs/s), Bite (2.5 s sprint at 24 then 3.5 s stop). Net about 10 studs/s over the 18 s cycle. The active head is drawn on the bar icon so the cycle is readable at a glance.",
+    "baseSpeedStudsPerSec": 18,
+    "headStartSeconds": 11,
+    "twist": "Head cycle: three distinct behaviours in one chaser, and the bar icon itself tells you which one is coming."
+   },
+   "newMechanicIntroduced": "Rising lava climbs: vertical escapes where the lava plane rises on a fixed schedule and the only way is up.",
+   "signatureHazards": [
+    "Sweeping fire beams",
+    "Chained islands that swing",
+    "Fire-rain zones",
+    "Lava rivers with a rising tide",
+    "Screaming statue push-back",
+    "Collapsing bone bridges"
+   ],
+   "eggDesign": "Obsidian egg wrapped in glowing chains with hellfire cracks; whispers and screams as it wobbles, then it bursts into three barks.",
+   "palette": "#7A0000 hell red, #000000 black, #FFA500 fire orange, #FFD700 chains",
+   "musicVibe": "Metal guitar and choir, 140 BPM, a three-note motif for the three heads",
+   "alternateAnimals": [
+    "HYDRA",
+    "CHIREMA"
+   ],
+   "sourceProposal": "progression"
+  },
+  {
+   "index": 18,
+   "difficultyLabel": "Abyssal",
+   "biomeName": "Storm Sea",
+   "theme": "Pirate shipwrecks and rock spires in a lightning storm; you run across masts, ropes and floating debris while the sea heaves and tentacles rise. Mood: Pirates of the Caribbean finale.",
+   "animal": "KRAKEN",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "'RELEASE THE KRAKEN'. Tentacles slamming the platforms behind you is the most cinematic chase in the game, and the eye-plus-tentacles render is a top thumbnail. Keeps the aquatic thread but on the surface, so no oxygen.",
+   "locomotion": "swimming",
+   "chaseProfile": {
+    "style": "tentacle slammer",
+    "description": "Body swims at the surface beside the path; the threat is its tentacles ahead of it. Needs swim animation.",
+    "baseSpeedStudsPerSec": 18.5,
+    "headStartSeconds": 12,
+    "twist": "Every 8 s a tentacle rises 15 studs ahead of the kraken and slams 1.5 s later, destroying that platform section for 5 s (the way BEHIND you disappears). It submerges for 3 s every 20 s (mercy)."
+   },
+   "newMechanicIntroduced": "Rotating bars: slowly turning masts, booms and tentacle-bars you ride or duck across the pitching ship decks.",
+   "signatureHazards": [
+    "Rocking ship decks",
+    "Tentacle slams",
+    "Telegraphed lightning strikes",
+    "Wave surges that push (wind-zone variant)",
+    "Rigging tightropes",
+    "Spinning ship wheels and anchor spinners"
+   ],
+   "eggDesign": "Deep-purple egg with sucker-dot pattern and one golden eye, hugged by a small tentacle; 5.5 studs, ink-drip particles.",
+   "palette": "#1A1F3D storm navy (sky / water), #6A0DAD kraken purple (hazards), #F7F754 lightning yellow (checkpoints), #8B5A2B ship wood (platforms)",
+   "musicVibe": "Sea shanty turned orchestral with thunder and choir",
+   "sourceProposal": "appeal"
+  },
+  {
+   "index": 19,
+   "difficultyLabel": "Celestial",
+   "biomeName": "Phoenix Peak",
+   "theme": "Climbing the inside of a volcano to its crater: obsidian pillars, rising lava, ash clouds and rings of fire. Mood: escalation.",
+   "animal": "FIREPHOENIX",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "Anime-level cool, and it re-hatches from an egg when you die - the one animal that ties the game's egg hook into the chase itself. Glowing orange render pops on the bar.",
+   "locomotion": "flying",
+   "chaseProfile": {
+    "style": "flyer, rebirth",
+    "description": "Flies the path spline over everything, leaving fire behind it. Needs fly animation.",
+    "baseSpeedStudsPerSec": 19,
+    "headStartSeconds": 12,
+    "twist": "Rebirth: every death it bursts into ash and re-hatches from a mini egg at its reset point (2 s mini cutscene = part of your head start). It circles for 2 s every 12 s. Fire trail: tiles it passes burn for 3 s, so backtracking is death."
+   },
+   "newMechanicIntroduced": "Thermal updraft fans: vents that launch you up the peak on fixed arcs; you must catch the next ledge before you fall.",
+   "signatureHazards": [
+    "Rising lava floor",
+    "Lava-geyser launch pads",
+    "Crumbling obsidian ledges",
+    "Ash-cloud visibility patches",
+    "Rotating fire-bar spinners",
+    "Vertical updraft wind zones"
+   ],
+   "eggDesign": "Molten black egg with glowing orange cracks and a flame wisp on top; 5 studs, ember particles.",
+   "palette": "#FF4500 lava orange (hazards), #1C1C1C obsidian (platforms), #FFD166 flame gold (checkpoints), #6B1D1D ember red (background)",
+   "musicVibe": "Rock-orchestral hybrid, tempo rising with the lava",
+   "sourceProposal": "appeal"
+  },
+  {
+   "index": 20,
+   "difficultyLabel": "Omega",
+   "biomeName": "Dragon's End",
+   "theme": "A ruined sky castle at the top of the world with a gold hoard, broken towers and echoes of every earlier biome, under a cracking sky. Mood: final boss.",
+   "animal": "CLASSICDRAGON",
+   "animalFolder": "BaseAnimals",
+   "whyThisAnimal": "The dragon is the final boss of childhood. 'I BEAT THE DRAGON OBBY' is the flex, it flies, it breathes fire, and its golden egg is the ultimate cosmetic everyone wants to show off.",
+   "locomotion": "flying",
+   "chaseProfile": {
+    "style": "boss flyer",
+    "description": "Flies the spline with fireball volleys ahead of you; roars give the only breathing room. Needs fly animation.",
+    "baseSpeedStudsPerSec": 20,
+    "headStartSeconds": 12,
+    "twist": "Every 6 s it fires 3 fireballs along the path ahead (orange target rings 1 s before); bursts to 22 studs/s for 2 s after each volley; roars for 3 s every 15 s. On catch it eats you (short cutscene)."
+   },
+   "newMechanicIntroduced": "Fire-breath beam grids: sweeping and pulsing kill beams on a musical timing window, layered over every earlier mechanic.",
+   "signatureHazards": [
+    "Fireball volleys",
+    "Rising lava plus wind-gust combos",
+    "Invisible bridges",
+    "Crumbling towers",
+    "Spinner gauntlets",
+    "Ice slides into gaps"
+   ],
+   "eggDesign": "Giant golden egg with red scales and a crown-like crest sitting on a hoard of coins; 7 studs, gold sparkle and smoke particles.",
+   "palette": "#D4AF37 gold (platforms / hoard), #B3001B dragon red (hazards), #1B1B2F night castle (background), #FF8C00 fire glow (checkpoints)",
+   "musicVibe": "Full orchestra and choir boss theme that quotes the biome-1 ukulele melody in the final stage",
+   "sourceProposal": "appeal"
+  }
+ ]
+}

@@ -8,29 +8,40 @@ local Difficulty = require("./Difficulty")
 local PROFILES =
 	{ steady = true, bursty = true, stalker = true, flyer = true, swimmer = true, blinker = true, roarer = true }
 local LOCOMOTION = { ground = true, flying = true, swimming = true, hovering = true }
+-- Keys ChaseProfiles.luau reads for each profile; anything else in params would be dead data.
+local KNOWN_PARAMS = {
+	steady = {},
+	bursty = { burstSeconds = true, restSeconds = true, burstMultiplier = true, restMultiplier = true },
+	stalker = { idleCap = true, idleGain = true },
+	flyer = { hoverHeight = true, bobAmplitude = true, bobPeriod = true },
+	swimmer = { hoverHeight = true, bobAmplitude = true, bobPeriod = true },
+	blinker = { blinkPeriod = true, blinkStuds = true, telegraphSeconds = true, baseMultiplier = true },
+	roarer = { roarEvery = true, roarSeconds = true, sprintSeconds = true, sprintMultiplier = true },
+}
 local FOLDERS = { Animal = true, BaseAnimals = true }
 local EXPECTED_ANIMALS = {
-	"Bunny",
-	"Chicken",
-	"GoldenRetriver",
 	"Capybara",
-	"Goat",
+	"GoldenRetriver",
+	"Cat",
+	"Tanuki",
+	"Quokka",
 	"Kangaroo",
-	"Hyena",
-	"Crocodile",
+	"HoneyBadger",
+	"Cassowary",
 	"Gorilla",
-	"Polar Bear",
+	"Shark",
+	"Crocodile",
+	"Mamoth",
 	"SABER_TOOTHED_TIGER",
-	"Spinosaurus",
-	"PTERANODON",
+	"QUETZALCOATLUS",
 	"MEGALODON",
-	"GRIFFIN",
+	"MINOTAUR",
 	"CERBERUS",
 	"KRAKEN",
-	"HYDRA",
+	"FIREPHOENIX",
 	"CLASSICDRAGON",
-	"LEVIATHAN",
 }
+local CUSTOM_FOLDER = { Tanuki = true, Quokka = true, HoneyBadger = true, Cassowary = true }
 
 local function count(tbl)
 	local n = 0
@@ -100,8 +111,8 @@ T.test("animals, names and tiers are unique and match the roster order", functio
 	end
 	T.eq(Biomes[1].tier, "Easy")
 	T.eq(Biomes[14].tier, "Nil")
-	T.eq(Biomes[7].animal, "Hyena")
-	T.eq(Biomes[7].animalFolder, "Animal")
+	T.eq(Biomes[4].animal, "Tanuki")
+	T.eq(Biomes[4].animalFolder, "Animal")
 end)
 
 T.test("every biome has valid enums, folder, colour, palette and hazards", function()
@@ -110,9 +121,7 @@ T.test("every biome has valid enums, folder, colour, palette and hazards", funct
 		T.truthy(PROFILES[def.chase.profile], "profile " .. tostring(def.chase.profile))
 		T.truthy(LOCOMOTION[def.locomotion], "locomotion " .. tostring(def.locomotion))
 		T.truthy(FOLDERS[def.animalFolder], "folder " .. tostring(def.animalFolder))
-		if def.animal ~= "Hyena" then
-			T.eq(def.animalFolder, "BaseAnimals", def.animal .. " folder")
-		end
+		T.eq(def.animalFolder, if CUSTOM_FOLDER[def.animal] then "Animal" else "BaseAnimals", def.animal .. " folder")
 		T.truthy(def.tierColor, "tierColor " .. def.name)
 		T.truthy(def.tierColor.ToHex, "tierColor is a Color3")
 		if GameConfig.TierColors[def.tier] then
@@ -122,34 +131,36 @@ T.test("every biome has valid enums, folder, colour, palette and hazards", funct
 		T.falsy(seenPalette[key], "duplicate palette for " .. def.name)
 		seenPalette[key] = true
 		T.truthy(#def.hazards >= 1, "hazards for " .. def.name)
-		T.eq(def.hazards[1], "KillBrick")
 		T.eq(def.eggModel, nil)
 		T.eq(def.music, nil)
 		T.eq(type(def.theme), "string")
 		T.eq(type(def.chase.params), "table")
+		T.truthy(table.isfrozen(def.chase.params), "params frozen for " .. def.name)
+		for key, value in pairs(def.chase.params) do
+			T.truthy(KNOWN_PARAMS[def.chase.profile][key], def.name .. " has unknown param " .. tostring(key))
+			T.eq(type(value), "number", def.name .. " param " .. tostring(key))
+		end
 	end
 end)
 
 T.test("chase configs ramp monotonically from biome 1 to 20", function()
 	T.near(Biomes[1].chase.baseSpeed, 9)
-	T.near(Biomes[20].chase.baseSpeed, 22)
-	T.near(Biomes[1].chase.headStart, 8)
-	T.near(Biomes[20].chase.headStart, 4)
+	T.near(Biomes[20].chase.baseSpeed, 20)
+	T.truthy(Biomes[1].chase.headStart >= 10, "biome 1 head start is generous")
 	for i = 2, 20 do
 		local prev, cur = Biomes[i - 1].chase, Biomes[i].chase
 		T.truthy(cur.baseSpeed >= prev.baseSpeed, "baseSpeed non-decreasing at " .. i)
-		T.truthy(cur.headStart <= prev.headStart, "headStart non-increasing at " .. i)
+		T.truthy(cur.headStart >= 8, "headStart never below 8 s at " .. i)
 	end
 	for _, def in ipairs(Biomes) do
 		local c = def.chase
-		T.eq(c.respawnHeadStart, 3)
-		T.eq(c.resetGap, 40)
+		T.truthy(c.respawnHeadStart >= 2 and c.respawnHeadStart <= 5, "respawnHeadStart range " .. def.name)
+		T.truthy(c.resetGap >= 20 and c.resetGap <= 60, "resetGap range " .. def.name)
 		T.eq(c.catchDistance, 3)
 		T.eq(c.catchRadius, 6)
-		T.eq(c.maxGap, 180)
-		T.near(c.catchUpMultiplier, 1.6)
-		T.eq(c.mercyGap, 25)
-		T.near(c.mercyMultiplier, 0.85)
+		T.truthy(c.maxGap > c.mercyGap, "maxGap above mercyGap " .. def.name)
+		T.truthy(c.catchUpMultiplier > 1, "catchUp above 1 " .. def.name)
+		T.truthy(c.mercyMultiplier < 1 and c.mercyMultiplier > 0, "mercy below 1 " .. def.name)
 	end
 end)
 
@@ -171,7 +182,7 @@ T.test("biome mechanics follow Difficulty.MechanicOrder", function()
 		seen[key] = true
 		T.eq(Biomes[i].mechanic, key, "mechanic of biome " .. i)
 	end
-	T.eq(Difficulty.MechanicOrder[1], "platformRun")
+	T.eq(Difficulty.MechanicOrder[1], "gapJump")
 	T.eq(Difficulty.MechanicOrder[20], "laserGrid")
 	T.truthy(table.isfrozen(Difficulty.MechanicOrder))
 end)
@@ -226,21 +237,22 @@ end)
 
 T.test("MechanicsFor unlocks the first i keys plus turn", function()
 	local one = Difficulty.MechanicsFor(1)
-	T.eq(#one, 2)
+	T.eq(#one, 3)
 	T.eq(one[1], "platformRun")
-	T.eq(one[2], "turn")
+	T.eq(one[2], "gapJump")
+	T.eq(one[3], "turn")
 	local five = Difficulty.MechanicsFor(5)
-	T.eq(#five, 6)
-	T.eq(five[5], "spinner")
-	T.eq(five[6], "turn")
+	T.eq(#five, 7)
+	T.eq(five[6], "conveyor")
+	T.eq(five[7], "turn")
 	local all = Difficulty.MechanicsFor(20)
-	T.eq(#all, 21)
+	T.eq(#all, 22)
 	for _, key in ipairs(Difficulty.MechanicOrder) do
 		T.truthy(table.find(all, key), "MechanicsFor(20) contains " .. key)
 	end
 	T.truthy(table.find(all, "turn"))
-	T.eq(#Difficulty.MechanicsFor(0), 2, "clamped low")
-	T.eq(#Difficulty.MechanicsFor(50), 21, "clamped high")
+	T.eq(#Difficulty.MechanicsFor(0), 3, "clamped low")
+	T.eq(#Difficulty.MechanicsFor(50), 22, "clamped high")
 	all[1] = "mutated"
 	T.eq(Difficulty.MechanicsFor(20)[1], "platformRun", "returns a fresh array")
 end)

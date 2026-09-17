@@ -4,11 +4,12 @@
 	Owns the per-biome difficulty scalars used by the greybox generator and the order in which
 	obstacle mechanics (chunk keys) are unlocked. `Get(i)` linearly interpolates every scalar between
 	biome 1 and biome 20 (indices are rounded and clamped to 1..20) and returns a frozen, cached
-	DifficultyDef. `MechanicsFor(i)` lists the chunk keys allowed at biome i: the first i keys of
-	MechanicOrder plus "turn", which is always allowed. Pure data/functions; runs under the CLI harness.
+	DifficultyDef. `MechanicsFor(i)` lists the chunk keys allowed at biome i: "platformRun", the first i keys of
+	MechanicOrder and "turn". Pure data/functions; runs under the CLI harness.
 ]]
 
 local Types = require(script.Parent.Parent.Types)
+local Biomes = require(script.Parent.Biomes)
 
 type DifficultyDef = Types.DifficultyDef
 
@@ -17,29 +18,16 @@ local TURN_KEY = "turn"
 
 local Difficulty = {}
 
---- One chunk key per biome, in the order biomes introduce them. Biome i introduces MechanicOrder[i].
-Difficulty.MechanicOrder = table.freeze({
-	"platformRun",
-	"gapJump",
-	"killLane",
-	"movingPlatform",
-	"spinner",
-	"conveyor",
-	"trussClimb",
-	"wallHop",
-	"icePatch",
-	"windTunnel",
-	"darkCorridor",
-	"risingLava",
-	"fallingFloor",
-	"teleportPad",
-	"fanLaunch",
-	"shrinkingPlatform",
-	"rotatingBar",
-	"narrowBeam",
-	"bouncePad",
-	"laserGrid",
-}) :: { string }
+--- One chunk key per biome, in the order biomes introduce them, derived from Biomes so the roster is
+--- the single source of truth. Biome i introduces MechanicOrder[i].
+local order: { string } = table.create(BIOME_COUNT)
+for index, biome in ipairs(Biomes) do
+	order[index] = biome.mechanic
+end
+Difficulty.MechanicOrder = table.freeze(order) :: { string }
+
+--- Chunk keys that every biome may use regardless of unlocks (plain platform runs are filler).
+Difficulty.AlwaysKeys = table.freeze({ "platformRun" }) :: { string }
 
 --- The chunk key that is allowed in every biome regardless of unlocks.
 Difficulty.TurnKey = TURN_KEY
@@ -97,11 +85,14 @@ end
 --- Every chunk key unlocked at or before this biome, plus "turn". Returns a fresh array each call.
 function Difficulty.MechanicsFor(biomeIndex: number): { string }
 	local count = clampIndex(biomeIndex)
-	local keys: { string } = table.create(count + 1)
-	for index = 1, count do
-		keys[index] = Difficulty.MechanicOrder[index]
+	local keys: { string } = table.create(count + #Difficulty.AlwaysKeys + 1)
+	for _, key in ipairs(Difficulty.AlwaysKeys) do
+		table.insert(keys, key)
 	end
-	keys[count + 1] = TURN_KEY
+	for index = 1, count do
+		table.insert(keys, Difficulty.MechanicOrder[index])
+	end
+	table.insert(keys, TURN_KEY)
 	return keys
 end
 
