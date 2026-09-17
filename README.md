@@ -1,10 +1,11 @@
-# Animal Chase Obby
+# Hatch & Dash (working title)
 
 A Roblox difficulty-chart obby with a twist: every difficulty tier is a **biome**, and every biome
 has an **animal that hatches from an egg and chases you** through its 10 stages. 20 biomes, 200
 stages, 200 checkpoints, 20 eggs to hatch, 20 animals to outrun and tame.
 
-- **Design doc:** [`docs/GDD.md`](docs/GDD.md)
+- **Design doc:** [`docs/GDD.md`](docs/GDD.md) (rendered page: `docs/GDD.html`; sections live in `docs/gdd/` and are assembled by `scripts/build_gdd.py`)
+- **Name shortlist:** `docs/names.json` (recommendation: **Hatch & Dash**)
 - **Studio setup and asset import:** [`docs/SETUP.md`](docs/SETUP.md)
 - **Biome roster (design data):** `docs/roster.json` -> generated into
   `src/ReplicatedStorage/Shared/Config/Biomes.luau` by `scripts/gen_biomes.py`

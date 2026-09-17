@@ -1,0 +1,19 @@
+{
+ "recommendation": "Hatch & Dash",
+ "listingTitle": "Hatch & Dash 🥚 Animal Chase Obby [20 BIOMES]",
+ "runnerUp": "Eggscape Obby",
+ "case": "Two one-syllable words that rhyme, say the whole loop (the egg hatches, you dash) and are free of collisions on Roblox. It brands well on an icon, survives being shouted in a video title, and does not box the game into one animal or biome. The listing title carries the search keywords (animal, chase, obby) and a bracketed content tag, which is how front-page obbies are titled.",
+ "top10": [
+  {"name": "Hatch & Dash", "why": "Rhyming, brandable, explains the loop; no Roblox collision found.", "tagline": "Crack the egg. Beat the biome. Don't get caught.", "icon": "A cracked egg with an animal eye glaring out, tier-colour band along the bottom.", "collision": "none found"},
+  {"name": "Eggscape Obby", "why": "Pun every kid gets instantly; keeps the Obby keyword.", "tagline": "20 eggs. 20 animals. Outrun what hatches.", "icon": "An egg with legs sprinting away from a shadow.", "collision": "low (Egg Hunt Obby, Obby but You're an Egg exist but differ)"},
+  {"name": "It Hatched! RUN", "why": "Reads like an in-game moment and a YouTube title.", "tagline": "Every difficulty is a biome. Every biome hatches a chaser.", "icon": "Bursting egg shell with RUN! text.", "collision": "none found"},
+  {"name": "Escape the Biome Beasts Obby", "why": "Proven Escape-the-X-Obby search formula with our twist in the middle.", "tagline": "20 biomes, 20 beasts, 200 stages.", "icon": "Player mid-jump, dragon behind, biome strip below.", "collision": "low (template is crowded)"},
+  {"name": "Chase Chart Obby", "why": "Riff on Difficulty Chart Obby the DCO community recognises at once.", "tagline": "The difficulty chart, but every tier chases you.", "icon": "A rainbow difficulty chart with claw marks.", "collision": "none found"},
+  {"name": "Egg Chase Obby [20 Biomes]", "why": "Plainest, most searchable stack of keywords.", "tagline": "Hatch it. Outrun it. Tame it.", "icon": "Egg and running player silhouette.", "collision": "none found"},
+  {"name": "Every Biome Hatches a Beast", "why": "States the whole twist in one line.", "tagline": "Difficulty chart obby, animal edition.", "icon": "Five eggs in five biome colours.", "collision": "none found"},
+  {"name": "Hatched & Hunted", "why": "Alliterative movie-title feel; you are the prey.", "tagline": "200 stages of being chased.", "icon": "Egg cracked open, paw print over the player.", "collision": "none found"},
+  {"name": "Outrun What Hatches", "why": "Curiosity hook: what hatches?", "tagline": "Difficulty Chart Obby with a chaser per biome.", "icon": "Silhouette inside a glowing egg.", "collision": "none found"},
+  {"name": "You vs 20 Animals Obby", "why": "X vs Y format with a concrete number.", "tagline": "Beat the biome, tame the animal.", "icon": "Player facing a lineup of 20 animals.", "collision": "none found"}
+ ],
+ "namingNotes": "Keep the brand (Hatch & Dash) stable and put the searchable words in the listing title after it. Rotate the bracketed tag with each update ([NEW BIOME], [🐉 DRAGON], [EVENT]) because Roblox re-surfaces games whose titles change. Test two listing titles for a week each at soft launch and keep the one with the higher click-through from search and recommendations. Avoid 'Escape Animals Obby' and 'Obby but Animals Chase You': the first is indistinguishable from a dozen animal escape obbies and the second is near-identical to an existing chase obby."
+}
