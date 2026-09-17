@@ -143,5 +143,5 @@ for f in sorted((ROOT / "docs" / "gdd").glob("*.md")):
         text = text.replace("{{" + key + "}}", fn())
     parts.append(text.strip() + "\n")
 header = f"# {names['recommendation']}: Game Design Document\n\nA Roblox difficulty-chart obby where every difficulty tier is a biome and every biome hatches an animal that chases you. 20 biomes, 200 stages, 20 eggs, 20 animals to outrun and tame.\n\n_Version 1.0. Source of truth for every number in this document: `docs/roster.json`, `docs/roster_mapping.json` and the generated `Biomes.luau`. Rebuild with `scripts/build_gdd.py`._\n"
-(ROOT / "docs" / "GDD.md").write_text(header + "\n" + "\n".join(parts), encoding="utf-8")
-print("wrote docs/GDD.md", sum(len(p) for p in parts) // 1024, "KB of sections")
+(ROOT / "docs" / "GDD-full.md").write_text(header + "\n" + "\n".join(parts), encoding="utf-8")
+print("wrote docs/GDD-full.md", sum(len(p) for p in parts) // 1024, "KB of sections")
