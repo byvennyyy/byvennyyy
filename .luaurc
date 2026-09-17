@@ -1,0 +1,6 @@
+{
+  "languageMode": "strict",
+  "lint": { "*": true, "LocalUnused": true, "FunctionUnused": true },
+  "lintErrors": false,
+  "aliases": {}
+}

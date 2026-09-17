@@ -1,0 +1,7 @@
+sourcemap.json
+build/
+*.rbxl.lock
+*.rbxlx.lock
+.DS_Store
+globalTypes.d.luau
+tests/build/
