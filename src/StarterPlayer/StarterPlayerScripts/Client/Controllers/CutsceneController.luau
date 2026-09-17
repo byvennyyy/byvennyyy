@@ -119,6 +119,9 @@ local function buildLayer(): Layer
 	return layer :: Layer
 end
 
+local savedWalkSpeed = 16
+local savedJumpPower = 50
+
 local function freeze(on: boolean)
 	local character = player.Character
 	if not character then
@@ -130,8 +133,19 @@ local function freeze(on: boolean)
 		root.Anchored = on
 	end
 	if humanoid then
-		humanoid.WalkSpeed = if on then 0 else 16
-		humanoid.JumpPower = if on then 0 else 50
+		if on then
+			if humanoid.WalkSpeed > 0 then
+				savedWalkSpeed = humanoid.WalkSpeed
+			end
+			if humanoid.JumpPower > 0 then
+				savedJumpPower = humanoid.JumpPower
+			end
+			humanoid.WalkSpeed = 0
+			humanoid.JumpPower = 0
+		else
+			humanoid.WalkSpeed = savedWalkSpeed
+			humanoid.JumpPower = savedJumpPower
+		end
 	end
 end
 
@@ -241,8 +255,9 @@ local function play(biome: number, animal: string, firstTimeEver: boolean)
 			local eggSource = AssetResolver.egg(def.eggModel) or AssetResolver.placeholderEgg(def.palette)
 			local eggPrep = ModelPrep.prepare(eggSource)
 			egg = eggPrep.model
+			local _, yaw = info.eggPedestal:ToEulerAnglesYXZ()
 			local eggBase = CFrame.new(info.eggPedestal.Position + Vector3.new(0, 0.75 + eggPrep.halfHeight, 0))
-				* CFrame.Angles(0, info.eggPedestal:ToEulerAnglesYXZ(), 0)
+				* CFrame.Angles(0, yaw, 0)
 			eggPrep.model:PivotTo(eggBase)
 			eggPrep.model.Parent = workspace
 			if not waitBeat(Beats.cameraInSeconds) then
@@ -291,9 +306,9 @@ local function play(biome: number, animal: string, firstTimeEver: boolean)
 				or AssetResolver.placeholderAnimal(def.animal, def.palette)
 			local prep = ModelPrep.prepare(animalSource)
 			reveal = prep
-			local standing = CFrame.lookAt(
+			local standing = CFrame.lookAlong(
 				info.eggPedestal.Position + Vector3.new(0, 0.75 + prep.halfHeight, 0),
-				focus + info.eggPedestal.LookVector * -10
+				info.eggPedestal.LookVector
 			)
 			prep.model:PivotTo(standing)
 			prep.model.Parent = workspace

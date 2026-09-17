@@ -424,7 +424,7 @@ function HUDController.Start()
 		local h = hud
 		if h and timerRunning then
 			local elapsed = os.clock() - biomeStartedAt
-			h.timer.Text = string.format("⏱ %d:%02d", elapsed // 60, elapsed % 60)
+			h.timer.Text = string.format("⏱ %d:%02d", math.floor(elapsed / 60), math.floor(elapsed % 60))
 		end
 	end)
 	if ClientState.biome and ClientState.biomeDef then

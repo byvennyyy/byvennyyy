@@ -247,7 +247,7 @@ Chunks.spinner = function(ctx)
 	local disc = makePart(
 		ctx,
 		"SpinnerDisc",
-		Vector3.new(radius * 2, PLATFORM_THICKNESS, radius * 2),
+		Vector3.new(PLATFORM_THICKNESS, radius * 2, radius * 2),
 		center * CFrame.new(0, -PLATFORM_THICKNESS / 2, 0)
 	)
 	disc.Shape = Enum.PartType.Cylinder

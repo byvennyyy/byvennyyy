@@ -91,6 +91,11 @@ local function placeCharacter(player: Player, character: Model)
 	if not root or not root:IsA("BasePart") then
 		return
 	end
+	-- let the engine finish its own spawn placement before we move the character
+	task.wait(0.1)
+	if not character.Parent then
+		return
+	end
 	local revive = reviveAt[player]
 	if revive then
 		reviveAt[player] = nil

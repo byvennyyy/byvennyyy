@@ -73,7 +73,13 @@ local function onBiomeEntered(player: Player, biome: number)
 	local key = tostring(biome)
 	local firstTimeEver = not (data and data.eggsHatched[key])
 	local headStart = chase.headStart * (if MonetizationService.Owns(player, "DoubleHeadStart") then 2 else 1)
-	local startS = PathUtil.project(runtime.path, runtime.eggPedestal.Position)
+	local pedestalS = PathUtil.project(runtime.path, runtime.eggPedestal.Position)
+	local currentStage = CheckpointService.GetStage(player)
+	local startS = pedestalS
+	if BiomeRegistry.StageInBiome(currentStage) > 1 and currentStage <= GameConfig.TotalStages then
+		-- rejoining mid-biome: start a reset-gap behind the current checkpoint instead of at the egg
+		startS = math.max(pedestalS, BiomeRegistry.CheckpointS(currentStage) - chase.resetGap)
+	end
 	states[player] = {
 		biome = biome,
 		s = startS,
@@ -81,7 +87,7 @@ local function onBiomeEntered(player: Player, biome: number)
 		frozenUntil = now() + GameConfig.Cutscene.totalSeconds + headStart,
 		startedAt = 0,
 		biomeStartedAt = now(),
-		playerS = BiomeRegistry.CheckpointS(CheckpointService.GetStage(player)),
+		playerS = BiomeRegistry.CheckpointS(currentStage),
 		lastPlayerPos = nil,
 		idleSeconds = 0,
 		progressRate = 0,
